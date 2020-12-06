@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://editor.p5js.org/rajisnehi2/present/ulcf6qMcJ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="./ulcf6qMcJ_files/p5.js.download"></script>
+    <script src="./ulcf6qMcJ_files/p5.sound.min.js.download"></script>
+    <script src="./ulcf6qMcJ_files/2e4335d0-73da-4ee8-b5f3-e68f968fc9a5.js.download"></script>
+    
+    
+
+  <!--<base href="https://editor.p5js.org/rajisnehi2/present/ulcf6qMcJ/">--><base href="."><style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+</style></head>
+  <body>
+    <script>var bananaImage, backImage, score, stoneImage;
+
+var monkeyAnimation, backSprite, monkeySprite, bananaSprite, foodGroup, food, stoneGroup;
+
+function preload() {
+  monkeyAnimation = loadAnimation("https://assets.editor.p5js.org/5f33f563f934070024b53b56/b19c4458-5032-4557-8dee-4630c1438f89.png", "https://assets.editor.p5js.org/5f33f563f934070024b53b56/8d646d73-ab32-407c-bb13-ba66520f9501.png", "https://assets.editor.p5js.org/5f33f563f934070024b53b56/919f7306-a370-40a1-b4ea-17a9951716a6.png", "https://assets.editor.p5js.org/5f33f563f934070024b53b56/f9f23202-c8e6-4679-b004-fbba21c5693d.png", "https://assets.editor.p5js.org/5f33f563f934070024b53b56/f194dbef-e34c-48a1-9afc-da99994b432a.png", "https://assets.editor.p5js.org/5f33f563f934070024b53b56/86a1968e-fdb6-4014-9061-99fe289d73d1.png", "https://assets.editor.p5js.org/5f33f563f934070024b53b56/aae1390f-168e-4c83-9554-c488e43f28f2.png", "https://assets.editor.p5js.org/5f33f563f934070024b53b56/10c70516-d28b-49af-9e8a-073fd8c8557e.png", "https://assets.editor.p5js.org/5f33f563f934070024b53b56/553a6061-cea0-42c4-8eef-b2c3aa62baea.png", "https://assets.editor.p5js.org/5f33f563f934070024b53b56/7e0307b3-0a9d-4302-8136-fbb0f9ad1f68.png");
+  backImage = loadImage("https://assets.editor.p5js.org/5f33f563f934070024b53b56/2f9101c5-7a11-4c85-92eb-08bae22f0583.jpg");
+  bananaImage = loadImage("https://assets.editor.p5js.org/5f33f563f934070024b53b56/9dbdb2da-ada6-4f3a-96e0-253f4baaca14.png");
+  stoneImage = loadImage("https://assets.editor.p5js.org/5f33f563f934070024b53b56/bdf8d5a1-92c1-465d-a7ad-70b20c5db951.png");
+}
+
+function setup() {
+  createCanvas(800, 400);
+  backSprite=createSprite(200,200,50,50);
+  backSprite.addImage("ab",backImage)
+  monkeySprite=createSprite(200,200,50,50);
+  monkeySprite.addAnimation("monkeyrunning",monkeyAnimation)
+  monkeySprite.scale=0.1
+  monkeySprite.x=30
+  monkeySprite.y=350
+  ground = createSprite(400,380, 800, 10)        
+}
+
+function draw() {
+   background("white")
+    if (keyDown("space")) {
+    monkeySprite.velocityY = -12;
+    }
+    monkeySprite.velocityY = monkeySprite.velocityY + 0.5;
+    monkeySprite.collide(ground)
+    ground.velocityX=-3
+    if(ground.x<400){
+    ground.x=ground.width/2;
+  }
+  spawnObstacles();
+  drawSprites();
+}
+function spawnObstacles(){
+  if(frameCount%60===0){
+    var stone=createSprite(800,350,10,10)
+    stone.addImage(stoneImage);
+    stone.scale=0.1
+    stone.velocityX=-5
+    
+    
+}
+}
+  
+
+</script>
+  
+
+<main><canvas id="defaultCanvas0" class="p5Canvas" width="800" height="400" style="width: 800px; height: 400px;"></canvas></main></body></html>
